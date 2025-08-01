@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  font-family: monospace;
+  background-color: black;
+  color: #eee;
+  overflow: hidden;
+}
+
+.header {
+  background-color: #ff0033;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+#chatbox {
+  width: 90%;
+  max-width: 700px;
+  height: 85vh;
+  margin: 20px auto;
+  background-color: rgba(20, 20, 20, 0.9);
+  border: 3px dashed #f00;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+#messages {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  font-size: 1rem;
+}
+
+.message {
+  margin-bottom: 15px;
+}
+
+.user {
+  color: #4ef;
+}
+
+.bot {
+  color: #ff5555;
+  white-space: pre-wrap;
+  animation: glitch 0.1s infinite;
+}
+
+form {
+  display: flex;
+  padding: 10px;
+  background-color: #111;
+  border-top: 2px solid #333;
+}
+
+#user-input {
+  flex-grow: 1;
+  padding: 10px;
+  background: #000;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+button {
+  background: #ff0033;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff3366;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glitchy {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 0, 0, 0.1),
+    rgba(0, 255, 0, 0.1) 2px,
+    rgba(0, 0, 255, 0.1) 4px
+  );
+  animation: glitchOverlay 0.3s infinite;
+  opacity: 0.1;
+}
+
+@keyframes glitch {
+  0% { transform: skew(0); }
+  50% { transform: skew(1deg); }
+  100% { transform: skew(0); }
+}
+
+@keyframes glitchOverlay {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-2px); }
+  50% { transform: translateY(2px); }
+  75% { transform: translateY(-1px); }
+  100% { transform: translateY(0); }
+}
+
+.matrix {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, #000000 100%);
+  animation: matrixRain 1s linear infinite;
+}
